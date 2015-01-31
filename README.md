@@ -4,7 +4,7 @@ Displays AE2 P2P Frequencies in the Waila tooltip
 License
 -------
 
-AE2 Frequency Display is (c) 2015 Christian Fraenkel and licensed under LGPL v3. See the LICENSE for details or go to http://www.gnu.org/licenses/lgpl-3.0.txt for more information.
+AE2 Frequency Display is (c) 2015 Christian Fraenkel and licensed under LGPL v3. See COPYING.LESSER for details or go to http://www.gnu.org/licenses/lgpl-3.0.txt for more information.This software includes third party libraries. See LICENSE-3RD-PARTY.txt.
 
 
 Standalone source installation
