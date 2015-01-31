@@ -100,7 +100,7 @@ public class AE2DataProvider implements IWailaFMPProvider, IWailaDataProvider {
 						+ side.ordinal());
 				if (extra != null && extra.hasKey("freq")) {
 					long freq = extra.getLong("freq");
-					if (config.getConfig(Constants.CFG_SHOW_HEX, false)) {
+					if (config.getConfig(Constants.CFG_SHOW_HEX, true)) {
 						currentToolTip
 								.add(StatCollector
 										.translateToLocal("AE2frequencyDisplay.frequency")
