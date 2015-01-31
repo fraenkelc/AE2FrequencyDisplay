@@ -107,17 +107,31 @@ public class AE2DataProvider implements IWailaFMPProvider, IWailaDataProvider {
 						+ side.ordinal());
 				if (extra != null && extra.hasKey("freq")) {
 					long freq = extra.getLong("freq");
-					if (config.getConfig(Constants.CFG_SHOW_FREQUENCY, true)) {
+					if (freq == 0) {
 						currentToolTip
 								.add(StatCollector
 										.translateToLocal("AE2frequencyDisplay.frequency")
-										+ " " + getNameForFreq(freq));
-					}
-					if (config.getConfig(Constants.CFG_SHOW_HEX, false)) {
+										+ " "
+										+ StatCollector
+												.translateToLocal("AE2frequencyDisplay.unavailable"));
 						currentToolTip
 								.add(StatCollector
-										.translateToLocal("AE2frequencyDisplay.frequency")
-										+ " " + getHexNameForFreq(freq));
+										.translateToLocal("AE2frequencyDisplay.unavailable.desc"));
+
+					} else {
+						if (config
+								.getConfig(Constants.CFG_SHOW_FREQUENCY, true)) {
+							currentToolTip
+									.add(StatCollector
+											.translateToLocal("AE2frequencyDisplay.frequency")
+											+ " " + getNameForFreq(freq));
+						}
+						if (config.getConfig(Constants.CFG_SHOW_HEX, false)) {
+							currentToolTip
+									.add(StatCollector
+											.translateToLocal("AE2frequencyDisplay.frequency")
+											+ " " + getHexNameForFreq(freq));
+						}
 					}
 				}
 			}
