@@ -1,8 +1,16 @@
 sudo: false
 language: java
 jdk:
-  - oraclejdk7
+- oraclejdk7
 cache:
   directories:
   - $HOME/.gradle/caches
   - $HOME/.gradle/wrapper
+deploy:
+  provider: releases
+  api_key:
+    secure: kHk1LP0G/Cdsk2kkjyiycM4C88t777AMkGvdiKq5JY1gr67Dl2uX8M8eTxgXTJoAbQWrxvCnwFqL5ygqPvdvNO4uan2RQhAFCr1FZHwao00r/kc+w3Mkxat+jJQa7pAeM7rVbUN2WVbfaB5am6chSSyHnuZy+MN5L1lWwPH8g80=
+  file: build/libs/AE2FrequencyDisplay*.jar
+  skip_cleanup: true
+  on:
+    repo: fraenkelc/AE2FrequencyDisplay
