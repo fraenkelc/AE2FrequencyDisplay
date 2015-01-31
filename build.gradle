@@ -61,6 +61,12 @@ minecraft {
 
 }
 
+jar{
+    from{
+        ["COPYING","COPYING.LESSER", "LICENSE-3RD-PARTY.txt"]
+    }
+}
+
 sourceSets {
   main {
     java {
