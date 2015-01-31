@@ -1,6 +1,7 @@
 package net.lessqq.mc.ae2freq;
 
 import java.util.List;
+import java.util.Random;
 
 import mcp.mobius.waila.api.IWailaConfigHandler;
 import mcp.mobius.waila.api.IWailaDataAccessor;
@@ -15,6 +16,10 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import org.willden.wordmap.SmallDictionary;
+import org.willden.wordmap.WordMapper;
+
 import appeng.api.parts.IPartHost;
 import appeng.api.parts.SelectedPart;
 import appeng.parts.p2p.PartP2PTunnel;
@@ -29,6 +34,8 @@ import appeng.parts.p2p.PartP2PTunnel;
 public class AE2DataProvider implements IWailaFMPProvider, IWailaDataProvider {
 
 	private static final long YEAR_2014 = 1388534400000l;
+	private static final long YEAR_2030 = 1893456000000l;
+	private WordMapper wordMapper = new WordMapper(new SmallDictionary());
 
 	@Override
 	public List<String> getWailaHead(ItemStack itemStack,
@@ -100,7 +107,13 @@ public class AE2DataProvider implements IWailaFMPProvider, IWailaDataProvider {
 						+ side.ordinal());
 				if (extra != null && extra.hasKey("freq")) {
 					long freq = extra.getLong("freq");
-					if (config.getConfig(Constants.CFG_SHOW_HEX, true)) {
+					if (config.getConfig(Constants.CFG_SHOW_FREQUENCY, true)) {
+						currentToolTip
+								.add(StatCollector
+										.translateToLocal("AE2frequencyDisplay.frequency")
+										+ " " + getNameForFreq(freq));
+					}
+					if (config.getConfig(Constants.CFG_SHOW_HEX, false)) {
 						currentToolTip
 								.add(StatCollector
 										.translateToLocal("AE2frequencyDisplay.frequency")
@@ -113,8 +126,20 @@ public class AE2DataProvider implements IWailaFMPProvider, IWailaDataProvider {
 		return currentToolTip;
 	}
 
+	private String getNameForFreq(long freq) {
+		if ((freq > YEAR_2014 && freq <= YEAR_2030)) {
+			return wordMapper
+					.intToWords(shuffleBits((int) ((freq - YEAR_2014) / 10)));
+		}
+		return getHexNameForFreq(freq);
+	}
+
 	private String getHexNameForFreq(long freq) {
 		return String.format("%08X", freq - YEAR_2014);
+	}
+
+	private int shuffleBits(int freq) {
+		return new Random(freq).nextInt(Integer.MAX_VALUE);
 	}
 
 	@Override

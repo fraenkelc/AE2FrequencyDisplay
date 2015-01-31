@@ -21,6 +21,7 @@ public class AE2FrequencyDisplay {
 	}
 
 	public static void callbackRegister(IWailaRegistrar registrar) {
+		registrar.addConfig(Constants.MODID, Constants.CFG_SHOW_FREQUENCY);
 		registrar.addConfig(Constants.MODID, Constants.CFG_SHOW_HEX);
 		registerAE2(registrar);
 	}
