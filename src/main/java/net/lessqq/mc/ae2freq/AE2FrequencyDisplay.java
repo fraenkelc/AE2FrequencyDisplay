@@ -12,13 +12,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class AE2FrequencyDisplay {
 
 	public final static String MOD_DEPENDENCIES = "after:Waila;"
-			+ "after:appliedenergistics2;" +
-			// depend on version of forge used for build.
-			"required-after:Forge@[" // require forge.
-			+ net.minecraftforge.common.ForgeVersion.majorVersion + '.' // majorVersion
-			+ net.minecraftforge.common.ForgeVersion.minorVersion + '.' // minorVersion
-			+ net.minecraftforge.common.ForgeVersion.revisionVersion + '.' // revisionVersion
-			+ net.minecraftforge.common.ForgeVersion.buildVersion + ",)"; // buildVersion
+			+ "after:appliedenergistics2";
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
