@@ -79,6 +79,8 @@ dependencies {
   compile "appeng:appliedenergistics2:rv2-beta-7:dev"
 }
 
+tasks.release.dependsOn 'build', 'check'
+
 processResources
 {
   // this will ensure that this task is redone when the versions change.
