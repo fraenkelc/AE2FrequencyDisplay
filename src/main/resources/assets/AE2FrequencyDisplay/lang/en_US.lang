@@ -1,0 +1,6 @@
+# options
+option.ae2freq.showFrequency=Show symbolic name for frequency
+option.ae2freq.showFrequencyHex=Show frequency hex value
+
+# tooltips
+AE2frequencyDisplay.frequency=Frequency: 

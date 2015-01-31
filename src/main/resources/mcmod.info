@@ -1,0 +1,19 @@
+[
+   {
+      "modid":"AE2FrequencyDisplay",
+      "name":"AE2 Frequency Display",
+      "description":"Displays AE2 P2P Frequencies in the Waila tooltip",
+      "version":"${version}",
+      "mcversion":"${mcversion}",
+      "url":"http://example.info",
+      "updateUrl":"",
+      "authorList":[
+         "Oradi"
+      ],
+      "credits":"Oradi",
+      "logoFile":"",
+      "screenshots":[
+
+      ]
+   }
+]
