@@ -55,7 +55,10 @@ repositories {
 
 minecraft {
   version = "1.7.10-10.13.2.1231"
-    runDir = "eclipse"
+  runDir = "eclipse"
+  replaceIn "net/lessqq/mc/ae2freq/Constants.java"
+  replace "@version@", project.version.toString()
+
 }
 
 sourceSets {
