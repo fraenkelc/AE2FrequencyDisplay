@@ -1,6 +1,8 @@
 # AE2 Frequency Display
 Displays AE2 P2P Frequencies in the Waila tooltip
 
+![Build status](https://travis-ci.org/fraenkelc/AE2FrequencyDisplay.svg)
+
 License
 -------
 
