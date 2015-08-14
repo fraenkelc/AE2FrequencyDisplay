@@ -5,4 +5,4 @@ option.ae2freq.showFrequencyHex=Show frequency hex value
 # tooltips
 AE2frequencyDisplay.frequency=Frequency: 
 AE2frequencyDisplay.unavailable=Unavailable
-AE2frequencyDisplay.unavailable.desc=Try joining a single player game first
+AE2frequencyDisplay.unavailable.desc=This tunnel may not yet be connected.

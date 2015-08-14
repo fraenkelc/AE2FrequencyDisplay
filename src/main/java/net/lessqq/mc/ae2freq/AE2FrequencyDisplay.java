@@ -1,23 +1,20 @@
 package net.lessqq.mc.ae2freq;
 
 import mcp.mobius.waila.api.IWailaRegistrar;
-import net.minecraft.block.Block;
+import appeng.tile.networking.TileCableBus;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLInterModComms;
-import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = Constants.MODID, version = Constants.VERSION, acceptedMinecraftVersions = "[1.7.10]", dependencies = AE2FrequencyDisplay.MOD_DEPENDENCIES)
+@Mod(name = "AE2 Frequency Display", modid = Constants.MODID, version = Constants.VERSION, acceptedMinecraftVersions = "[1.7.10]", dependencies = AE2FrequencyDisplay.MOD_DEPENDENCIES, acceptableRemoteVersions = "*")
 public class AE2FrequencyDisplay {
 
-	public final static String MOD_DEPENDENCIES = "after:Waila;"
-			+ "after:appliedenergistics2";
+	public final static String MOD_DEPENDENCIES = "after:Waila;" + "after:appliedenergistics2";
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		FMLInterModComms.sendMessage("Waila", "register",
-				AE2FrequencyDisplay.class.getName() + ".callbackRegister");
+		FMLInterModComms.sendMessage("Waila", "register", AE2FrequencyDisplay.class.getName() + ".callbackRegister");
 	}
 
 	public static void callbackRegister(IWailaRegistrar registrar) {
@@ -27,19 +24,9 @@ public class AE2FrequencyDisplay {
 	}
 
 	private static void registerAE2(IWailaRegistrar registrar) {
-		Block cableBus = GameRegistry.findBlock("appliedenergistics2",
-				"tile.BlockCableBus");
-		if (cableBus != null) {
-			AE2DataProvider provider = new AE2DataProvider();
-			Class<? extends Block> clazz = cableBus.getClass();
-			registrar.registerBodyProvider(provider, clazz);
-			registrar.registerBodyProvider(provider, "ae2_cablebus");
-			registrar.registerSyncedNBTKey("*", clazz);
-
-			// registrar.registerNBTProvider(provider, clazz);
-
-		}
-
+		AE2DataProvider provider = new AE2DataProvider();
+		registrar.registerBodyProvider(provider, TileCableBus.class);
+		registrar.registerNBTProvider(provider, TileCableBus.class);
 	}
 
 }
