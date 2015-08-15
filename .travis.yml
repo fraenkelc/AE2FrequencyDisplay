@@ -8,6 +8,7 @@ cache:
   - $HOME/.gradle/wrapper
 before_cache:
   - rm -f $HOME/.gradle/caches/2.1/plugin-resolution/cache.properties.lock
+  - rm -f $HOME/.gradle/caches/2.1/plugin-resolution/cache.properties
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 deploy:
   provider: releases
