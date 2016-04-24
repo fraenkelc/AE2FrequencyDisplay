@@ -157,7 +157,7 @@ public class AE2DataProvider implements IWailaDataProvider {
 			if (maybePart.isPresent()) {
 				final IPart part = maybePart.get();
 				if (part instanceof PartP2PTunnel<?>) {
-					tag.setLong(ID_FREQUENCY, ((PartP2PTunnel<?>) part).freq);
+					tag.setLong(ID_FREQUENCY, ((PartP2PTunnel<?>) part).getFrequency());
 				}
 			}
 		}

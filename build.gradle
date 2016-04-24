@@ -61,7 +61,10 @@ repositories {
     name = "RX14 Proxy"
       url = "http://mvn.rx14.co.uk/repo/"
   }
-
+  maven {
+    name = "MM repo"
+    url = "http://maven.k-4u.nl/"
+  }
   ivy {
     name "BuildCraft"
       artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
@@ -73,7 +76,7 @@ sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
 minecraft {
-  version = "1.7.10-10.13.2.1291"
+  version = "1.7.10-10.13.4.1448-1.7.10"
     runDir = "eclipse"
     replaceIn "net/lessqq/mc/ae2freq/Constants.java"
     replace "@version@", project.version.toString()
@@ -105,7 +108,7 @@ configurations {
 }
 
 dependencies {
-  compile "appeng:appliedenergistics2:rv2-stable-10:dev"
+  compile "appeng:appliedenergistics2:rv3-beta-5:dev"
     mods "mcp.mobius.waila:Waila:1.5.10_1.7.10:dev"
 }
 
